@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.support.graphics.drawable.VectorDrawableCompat;
 
 public class Tile {
     private final static String LOG_TAG = Tile.class.getSimpleName();
@@ -20,18 +21,16 @@ public class Tile {
         this.y = y;
         this.d = d;
         tileColor = new Paint();
-        tileColor.setColor(d == 1 ? Color.BLACK : Color.YELLOW);
+        tileColor.setColor(this.d == 1 ? Color.BLACK : Color.YELLOW);
     }
 
     public void draw(Canvas canvas) {
-        Paint paint = new Paint(tileColor);
-
+        Paint paint = new Paint();
         paint.setColor(tileColor.getColor());
         paint.setStyle(Paint.Style.FILL);
 
         Path path = new Path();
-        path.setFillType(Path.FillType.EVEN_ODD);
-        path.lineTo(triangle.getA().x, triangle.getA().y);
+        path.moveTo(triangle.getA().x, triangle.getA().y);
         path.lineTo(triangle.getB().x, triangle.getB().y);
         path.lineTo(triangle.getC().x, triangle.getC().y);
         path.lineTo(triangle.getA().x, triangle.getA().y);

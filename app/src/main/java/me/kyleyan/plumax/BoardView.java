@@ -43,14 +43,21 @@ public class BoardView extends View {
                 for (int k = 0; k < 2; k++) {
                     if (this.board.isValidLocation(new Location(i, j, k))) {
                         this.mTiles[i][j][k] = new Tile(i, j, k);
-                        final int xCoord = getXCoord(i);
-                        final int yCoord = getYCoord(j);
-
-                        Point a = new Point(xCoord, yCoord);
-                        Point b = new Point(xCoord + tileSize, yCoord);
-                        Point c = new Point(xCoord + tileSize / 2,
-                                yCoord + (k == 1 ? 1 : -1) * (int) (tileSize * Math.sqrt(3) / 2));
-
+                        int xCoord = getXCoord(i);
+                        int yCoord = getYCoord(j);
+                        Point a, b, c;
+                        if (k == 1) {
+                            a = new Point(xCoord, yCoord);
+                            b = new Point(xCoord - tileSize / 2,
+                                    yCoord + (int) (tileSize * Math.sqrt(3) / 2));
+                            c = new Point(xCoord + tileSize / 2,
+                                    yCoord + (int) (tileSize * Math.sqrt(3) / 2));
+                        } else {
+                            a = new Point(xCoord, yCoord);
+                            b = new Point(xCoord - tileSize, yCoord);
+                            c = new Point(xCoord - tileSize / 2,
+                                    yCoord + (int) (tileSize * Math.sqrt(3) / 2));
+                        }
                         mTiles[i][j][k].setTriangle(a, b, c);
                     }
                 }
@@ -100,15 +107,15 @@ public class BoardView extends View {
     }
 
     private int getTileWidth(final int width) {
-        return width / 8;
+        return width / BOARD_SIZE / 4;
     }
 
     private int getTileHeight(final int height) {
-        return height / 8;
+        return height / BOARD_SIZE / 4;
     }
 
     private int getXCoord(final int x) {
-        return this.x0 + this.tileSize * x;
+        return this.x0 - this.tileSize * x;
     }
 
     private int getYCoord(final int y) {
@@ -116,8 +123,11 @@ public class BoardView extends View {
     }
 
     private void computeOrigins(final int width, final int height) {
-        this.x0 = (width  - this.tileSize * BOARD_SIZE * 3) / 2;
-        this.y0 = (height - (int)(this.tileSize * Math.sqrt(3) / 2) * BOARD_SIZE * 4) / 2;
+//        this.x0 = (width  - this.tileSize * BOARD_SIZE * 3) / 2;
+//        this.y0 = (height - (int)(this.tileSize * Math.sqrt(3) / 2) * BOARD_SIZE * 4) / 2;
+        this.x0 = (width  - this.tileSize * BOARD_SIZE * 3) / 2 + this.tileSize * BOARD_SIZE * 3;
+        this.y0 = (height - (int)((this.tileSize - 1)* Math.sqrt(3) / 2) * BOARD_SIZE * 4) / 2;
+
     }
 
 }
