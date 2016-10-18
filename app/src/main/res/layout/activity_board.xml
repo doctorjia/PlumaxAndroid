@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.kyleyan.plumax.BoardActivity">
 
-    <me.kyleyan.plumax.Chessboard
+    <me.kyleyan.plumax.BoardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />

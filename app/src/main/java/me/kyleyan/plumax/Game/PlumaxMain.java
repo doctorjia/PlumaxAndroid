@@ -1,7 +1,4 @@
 package me.kyleyan.plumax.Game;
-
-import javax.swing.*;
-import java.awt.*;
 import java.util.*;
 
 public class PlumaxMain {

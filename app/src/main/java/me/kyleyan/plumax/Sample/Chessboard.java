@@ -1,4 +1,4 @@
-package me.kyleyan.plumax;
+package me.kyleyan.plumax.Sample;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -27,7 +27,6 @@ public final class Chessboard extends View {
         this.mChessTiles = new ChessTile[COLS][ROWS];
 
         setFocusable(true);
-
         buildChessTiles();
     }
 
@@ -106,5 +105,6 @@ public final class Chessboard extends View {
         this.x0 = (width  - squareSize * 8) / 2;
         this.y0 = (height - squareSize * 8) / 2;
     }
+
 
 }

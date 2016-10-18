@@ -169,7 +169,7 @@ public class Board {
                 || location.equals(GREEN_END);
     }
 
-    private boolean isValidLocation(Location location) {
+    public boolean isValidLocation(Location location) {
         int x = location.getX();
         int y = location.getY();
         int d = location.getD();

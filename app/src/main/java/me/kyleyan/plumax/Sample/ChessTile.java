@@ -1,4 +1,4 @@
-package me.kyleyan.plumax;
+package me.kyleyan.plumax.Sample;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
