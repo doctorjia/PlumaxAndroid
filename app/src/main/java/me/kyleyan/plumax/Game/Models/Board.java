@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Board {
 
-    private static final int BOARD_SIZE = 1;
+    public static final int BOARD_SIZE = 3;
     private Piece[][][] boardMatrix;
     private Map<Location.LocationPair, Boolean> connection;
     private Map<Location.LocationPair, ConnectionType> pendingConnections;
